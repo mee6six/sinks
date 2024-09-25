@@ -1,91 +1,189 @@
 /* updated CSS */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to right, #f7f7f7, #e9e9e9);
+    color: #333;
 }
 
-h1 {
+header {
+    background: linear-gradient(135deg, #4a90e2, #50b2e8);
+    color: white;
+    text-align: center;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #50b2e8;
+}
+
+header h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
     margin: 0;
+    animation: slideInDown 1s ease-in-out;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-li {
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    margin: 0;
-    padding: 0;
-}
-
-img {
-    width: 100%;
-    height: auto;
+header p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-style: italic;
+    opacity: 0.9;
 }
 
 nav ul {
     display: flex;
-    flex-direction: column;
-    padding: 0 10px;
+    justify-content: space-around;
+    background: #333333;
+    padding: 15px 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 nav ul li {
-    margin-bottom: 10px;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #50b2e8;
+    border-radius: 25px;
+    color: white;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    top: 100%;
+    min-width: 150px;
+    z-index: 1;
+}
+
+nav ul li ul li a {
     padding: 10px;
     display: block;
 }
 
-nav ul li a:hover {
-    background-color: #555;
+nav ul li ul li a:hover {
+    background-color: #666;
 }
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 40px;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 main section {
-    background-color: #f9f9f9;
+    background: white;
+    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+main section img {
+    border-radius: 10px;
 }
 
 main section h2 {
-    margin-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #50b2e8;
+    text-transform: uppercase;
 }
 
 main section p {
     margin-top: 10px;
+    line-height: 1.6;
+    font-size: 1.1em;
 }
 
-header, footer {
-    background-color: #cccccc;
+footer {
+    background: #4a90e2;
+    color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
+    border-top: 5px solid #50b2e8;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+button {
+    background-color: #50b2e8;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #4a90e2;
+    transform: translateY(-5px);
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @media (max-width: 768px) {
-
     main {
         grid-template-columns: 1fr;
     }
 
+    header h1 {
+        font-size: 2.5em;
+    }
+
     nav ul {
-        flex-direction: row;
-        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        text-align: center;
     }
 }
